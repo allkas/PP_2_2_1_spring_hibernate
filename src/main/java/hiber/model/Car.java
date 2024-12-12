@@ -17,6 +17,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne(mappedBy = "car")  // Указываем на объект User, который владеет связью
+    private User user;
+
     public Car() {}
 
     public Car(String model, int series) {
