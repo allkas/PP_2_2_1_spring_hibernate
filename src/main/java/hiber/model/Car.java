@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "car")
 public class Car {
+
     @Column(name = "model")
     private String model;
 
@@ -19,9 +20,6 @@ public class Car {
 
     @OneToOne(mappedBy = "car")
     private User user;
-
-    @JoinColumn(name = "user_id")
-    private Long userId;
 
     public Car() {}
 
@@ -46,16 +44,24 @@ public class Car {
         this.series = series;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
                 "model='" + model + '\'' +
                 ", series=" + series +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
     }
 
     @Override
