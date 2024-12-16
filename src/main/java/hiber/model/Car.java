@@ -7,21 +7,15 @@ import java.util.Objects;
 @Entity
 @Table(name = "car")
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "model")
     private String model;
 
     @Column(name = "series")
     private int series;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne(mappedBy = "car")
-    private User user;
-
-    @JoinColumn(name = "user_id")
-    private Long userId;
 
     public Car() {}
 
