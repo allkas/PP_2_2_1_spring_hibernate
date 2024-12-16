@@ -21,9 +21,9 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne
-   @MapsId
-   @JoinColumn(name = "id")
+
+   @OneToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {}
@@ -34,6 +34,7 @@ public class User {
       this.email = email;
       this.car = car;
    }
+
 
    public Long getId() {
       return id;
@@ -65,14 +66,6 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
-   }
-
-   public Car getCar() {
-      return car;
-   }
-
-   public void setCar(Car car) {
-      this.car = car;
    }
 
    @Override
