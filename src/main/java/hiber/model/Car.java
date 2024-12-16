@@ -17,8 +17,11 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "car")  // Указываем на объект User, который владеет связью
+    @OneToOne(mappedBy = "car")
     private User user;
+
+    @JoinColumn(name = "user_id")
+    private Long userId;
 
     public Car() {}
 
